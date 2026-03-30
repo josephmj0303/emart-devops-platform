@@ -33,9 +33,9 @@ jobs:
     # 4. Build Images
     - name: Build Images
       run: |
-        docker build -t $IMAGE_PREFIX-frontend:$TAG ./client
-        docker build -t $IMAGE_PREFIX-node-api:$TAG ./node-api
-        docker build -t $IMAGE_PREFIX-java-api:$TAG ./java-api
+        docker build -t $IMAGE_PREFIX-frontend:$TAG ./app/client
+        docker build -t $IMAGE_PREFIX-node-api:$TAG ./app/node-api
+        docker build -t $IMAGE_PREFIX-java-api:$TAG ./app/java-api
 
         docker tag $IMAGE_PREFIX-frontend:$TAG $IMAGE_PREFIX-frontend:latest
         docker tag $IMAGE_PREFIX-node-api:$TAG $IMAGE_PREFIX-node-api:latest
