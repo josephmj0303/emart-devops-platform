@@ -1,13 +1,13 @@
-FROM node:18-alpine
+FROM node:20-bookworm-slim
 
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --omit=dev
 
 COPY . .
 
-RUN adduser -D appuser
+RUN useradd -m appuser
 USER appuser
 
 EXPOSE 5000
