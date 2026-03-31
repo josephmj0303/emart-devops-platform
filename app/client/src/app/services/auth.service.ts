@@ -3,7 +3,6 @@ import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
 import { BackendConfigService } from "../backend_config/backend-config.service";
-import { bgCyan } from "colors";
 
 @Injectable({ providedIn: "root" })
 export class AuthService {
