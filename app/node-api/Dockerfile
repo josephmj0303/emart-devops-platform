@@ -1,14 +1,10 @@
-FROM node:20-bookworm-slim
+FROM node:18-alpine
 
 WORKDIR /app
-
 COPY package*.json ./
-RUN npm ci --omit=dev
+RUN npm install --only=production
 
 COPY . .
 
-RUN useradd -m appuser
-USER appuser
-
 EXPOSE 5000
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
