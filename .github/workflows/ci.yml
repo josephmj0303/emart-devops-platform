@@ -71,3 +71,24 @@ jobs:
 
         docker push $IMAGE_PREFIX-java-api:$TAG
         docker push $IMAGE_PREFIX-java-api:latest
+    
+    # 8. Update GitOps Repo (GitOps Automation)
+    - name: Update GitOps Repo
+      env:
+        GITOPS_TOKEN: ${{ secrets.GITOPS_TOKEN }}
+        GITOPS_REPO: ${{ secrets.GITOPS_REPO }}
+      run: |
+        git clone https://$GITOPS_TOKEN@github.com/$GITOPS_REPO.git
+        cd emart-gitops
+
+        # Update image tags with new version
+        sed -i "s|emart-node-api:.*|emart-node-api:$TAG|g" k8s/node-api/deployment.yaml
+        sed -i "s|emart-java-api:.*|emart-java-api:$TAG|g" k8s/java-api/deployment.yaml
+        sed -i "s|emart-frontend:.*|emart-frontend:$TAG|g" k8s/frontend/deployment.yaml
+
+        git config user.name "github-actions"
+        git config user.email "actions@github.com"
+
+        git add .
+        git commit -m "Update images to $TAG"
+        git push
