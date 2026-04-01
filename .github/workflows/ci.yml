@@ -81,14 +81,19 @@ jobs:
         git clone https://$GITOPS_TOKEN@github.com/$GITOPS_REPO.git
         cd emart-gitops
 
-        # Update image tags with new version
-        sed -i "s|emart-node-api:.*|emart-node-api:$TAG|g" k8s/node-api/deployment.yaml
-        sed -i "s|emart-java-api:.*|emart-java-api:$TAG|g" k8s/java-api/deployment.yaml
-        sed -i "s|emart-frontend:.*|emart-frontend:$TAG|g" k8s/frontend/deployment.yaml
+        git pull origin main
+
+        # Update images safely
+        sed -i "s|image: .*emart-node-api:.*|image: $IMAGE_PREFIX-node-api:$TAG|g" k8s/node-api/deployment.yaml
+        sed -i "s|image: .*emart-java-api:.*|image: $IMAGE_PREFIX-java-api:$TAG|g" k8s/java-api/deployment.yaml
+        sed -i "s|image: .*emart-frontend:.*|image: $IMAGE_PREFIX-frontend:$TAG|g" k8s/frontend/deployment.yaml
 
         git config user.name "github-actions"
         git config user.email "actions@github.com"
 
         git add .
-        git diff --quiet || git commit -m "Update images to $TAG"
-        git push
+
+        if ! git diff --cached --quiet; then
+          git commit -m "Update images to $TAG"
+          git push origin main
+        fi
