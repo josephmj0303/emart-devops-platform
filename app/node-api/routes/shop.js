@@ -67,7 +67,7 @@ router.get("/info", async (req, res) => {
 // @route   GET /shop/products
 // @desc    Get products
 // @access  Private
-router.get("/products", verifyToken, (req, res) => {
+router.get("/products", (req, res) => {
   Product.find()
     .populate("category", "cat_name")
     .sort({ updatedAt: -1 })
@@ -78,7 +78,7 @@ router.get("/products", verifyToken, (req, res) => {
 // @route   GET /shop/products/:id
 // @desc    Get product by id
 // @access  Private
-router.get("/products/:id", verifyToken, (req, res) => {
+router.get("/products/:id", (req, res) => {
   Product.findById(req.params.id)
     .then(product => res.json({ success: true, product }))
     .catch(err => res.status(404).json({ success: false, message: "No product found with that ID" }));
@@ -87,7 +87,7 @@ router.get("/products/:id", verifyToken, (req, res) => {
 // @route   GET /shop/category/:category
 // @desc    Get products by category
 // @access  Private
-router.get("/category/:category", verifyToken, (req, res) => {
+router.get("/category/:category", (req, res) => {
   Category.find({ cat_name: req.params.category })
     .populate({ path: "products", select: "-category" })
     .sort({ updatedAt: -1 })
@@ -98,7 +98,7 @@ router.get("/category/:category", verifyToken, (req, res) => {
 // @route   GET /shop/search/:prod_name
 // @desc    Get products by product name
 // @access  Private
-router.get("/search/:prod_name", verifyToken, (req, res) => {
+router.get("/search/:prod_name", (req, res) => {
   Product.find({ prod_name: { $regex: req.params.prod_name, $options: "i" } })
     .populate("category")
     .sort({ updatedAt: -1 })
@@ -109,7 +109,7 @@ router.get("/search/:prod_name", verifyToken, (req, res) => {
 // @route   GET /shop/category
 // @desc    Get categories
 // @access  Private
-router.get("/category", verifyToken, (req, res) => {
+router.get("/category", (req, res) => {
   Category.find()
     .then(categories => res.json({ success: true, categories }))
     .catch(err => res.status(404).json({ success: false, message: "No categories found" }));
