@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const colors = require("colors");
+const client = require("prom-client");
 
 const mongooseURI = require("./config/keys").mongoURI;
 
@@ -11,6 +12,8 @@ const userRoutes = require("./routes/user");
 const shopRoutes = require("./routes/shop");
 
 const app = express();
+// Prometheus metrics
+client.collectDefaultMetrics();
 
 // Middleware
 app.use(cors());
@@ -29,6 +32,12 @@ app.use("/api/", shopRoutes);
 // ✅ Health Check (important for k8s later)
 app.get("/", (req, res) => {
   res.send("Node API is running");
+});
+
+// ✅ Prometheus Metrics Endpoint
+app.get("/metrics", async (req, res) => {
+  res.set("Content-Type", client.register.contentType);
+  res.end(await client.register.metrics());
 });
 
 // ✅ Catch-all (VERY IMPORTANT — prevents frontend fallback)
