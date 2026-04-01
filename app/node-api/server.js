@@ -24,7 +24,7 @@ app.use("/images", express.static(path.join(__dirname, "images")));
 
 // ✅ API Routes
 app.use("/api/user", userRoutes);
-app.use("/api/shop", shopRoutes);
+app.use("/api/", shopRoutes);
 
 // ✅ Health Check (important for k8s later)
 app.get("/", (req, res) => {
