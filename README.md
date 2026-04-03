@@ -10,6 +10,10 @@
 
 
 A production-style **end-to-end DevOps implementation** of a microservices-based e-commerce application deployed on Kubernetes (k3s) using **GitOps, CI/CD, observability, and security best practices**.
+## 📦 Project Components
+
+- 🚀 App + CI Pipeline: https://github.com/josephmj0303/emart-devops-platform  
+- 🔄 GitOps + Kubernetes: https://github.com/josephmj0303/emart-gitops  
 
 ---
 
