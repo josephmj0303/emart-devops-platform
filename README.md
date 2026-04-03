@@ -8,6 +8,7 @@
 ![Security](https://img.shields.io/badge/Security-Trivy-critical?logo=aqua&style=for-the-badge)
 ![License](https://img.shields.io/github/license/josephmj0303/emart-devops-platform?style=for-the-badge)
 
+
 A production-style **end-to-end DevOps implementation** of a microservices-based e-commerce application deployed on Kubernetes (k3s) using **GitOps, CI/CD, observability, and security best practices**.
 
 ---
