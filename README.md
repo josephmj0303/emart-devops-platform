@@ -1,4 +1,12 @@
 # 🚀 Emart DevOps Platform
+![CI](https://img.shields.io/github/actions/workflow/status/josephmj0303/emart-devops-platform/ci.yml?branch=main&label=CI&logo=githubactions&style=for-the-badge)
+![Docker](https://img.shields.io/badge/Docker-Images-blue?logo=docker&style=for-the-badge)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-k3s-blue?logo=kubernetes&style=for-the-badge)
+![ArgoCD](https://img.shields.io/badge/CD-ArgoCD-orange?logo=argo&style=for-the-badge)
+![GitOps](https://img.shields.io/badge/Deployment-GitOps-green?style=for-the-badge)
+![Monitoring](https://img.shields.io/badge/Monitoring-Prometheus%20%7C%20Grafana-red?logo=prometheus&style=for-the-badge)
+![Security](https://img.shields.io/badge/Security-Trivy-critical?logo=aqua&style=for-the-badge)
+![License](https://img.shields.io/github/license/josephmj0303/emart-devops-platform?style=for-the-badge)
 
 A production-style **end-to-end DevOps implementation** of a microservices-based e-commerce application deployed on Kubernetes (k3s) using **GitOps, CI/CD, observability, and security best practices**.
 
