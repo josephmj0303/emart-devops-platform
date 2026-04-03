@@ -27,11 +27,37 @@ This project demonstrates how a modern DevOps workflow is implemented:
 
 ---
 
+## 🔄 Related Repository (GitOps)
+
+This project follows a **GitOps deployment model**.
+
+👉 Kubernetes manifests and live deployment state are managed in:
+
+➡️ https://github.com/josephmj0303/emart-gitops
+
+### 🔁 How They Work Together
+
+```text
+emart-devops-platform (CI + App Code)
+        ↓
+Build & Push Docker Images
+        ↓
+Update GitOps Repo
+        ↓
+emart-gitops (Kubernetes Manifests)
+        ↓
+ArgoCD Sync
+        ↓
+Deployment to k3s Cluster
+```
+
+---
+
 ## 🏗️ Architecture
 
 ![Architecture](architecture-diagram/emartapp_architecture.png)
 
-Additional breakdown:
+### Additional breakdown:
 
 ![Microservices](architecture-diagram/microservice_appstructure.png)
 
