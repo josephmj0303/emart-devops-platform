@@ -125,6 +125,16 @@ Deployment to k3s Cluster
 3. Images scanned using Trivy
 4. Images pushed to Docker Hub
 5. GitOps repo updated with new image tags
+### ✅ Successful Workflow Run
+
+![CI Pipeline](screenshots/ci-pipeline.png)
+
+### 🔍 Pipeline Stages
+
+- Build Docker Images
+- Security Scan using Trivy
+- Push to DockerHub
+- Update GitOps Repository
 
 ---
 
@@ -142,6 +152,17 @@ Tagging strategy:
 
 * `latest`
 * `<commit-sha>`
+
+## 📦 Docker Images
+
+All microservices are containerized and pushed to DockerHub.
+
+![DockerHub Repositories](screenshots/dockerhub-images.png)
+
+### Services:
+- Frontend (Angular)
+- Node API
+- Java API
 
 ---
 
@@ -178,6 +199,12 @@ CI → DockerHub → GitOps Repo → ArgoCD → Kubernetes
 | Java API   | https://yourdomain.com/webapi    |
 | Grafana    | https://grafana.yourdomain.com   |
 | Prometheus | https://prometheus.yourdomain.com|
+
+### 🌐 Application UI
+
+The application is successfully deployed and accessible via domain.
+
+![Application UI](screenshots/app-ui.png)
 
 ---
 
