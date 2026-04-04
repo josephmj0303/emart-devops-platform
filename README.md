@@ -90,14 +90,23 @@ Deployment to k3s Cluster
 │   ├── client/             # Angular frontend
 │   ├── node-api/           # Node.js backend
 │   └── java-api/           # Spring Boot backend
-│
-├── k8s/                    # Kubernetes base + overlays (optional use)
-├── helm/                   # Helm chart (optional advanced deployment)
-├── architecture-diagram/   # System design diagrams
-├── docs/                   # Documentation
+├── architecture-diagram/   
+│   ├── emartapp_architecture.png
+│   └── microservice_appstructure.png
+├── docs/                   
+│   ├── architecture.md            
+│   └── services.md
 ├── env/                    # Environment templates
-├── .github/workflows/      # CI pipelines
-├── Makefile                # Dev automation
+│   └── env.example
+├── .github/workflows/
+│   └── ci.yml
+├── screenshots/                
+│   ├── app-ui.png           
+│   ├── ci-pipeline.png
+│   └── dockerhub-images.png
+├── LICENSE
+├── .trivyignore
+├── .gitignore
 └── README.md
 ```
 
@@ -208,15 +217,13 @@ docker-compose up
 Screenshots available under:
 
 ```
-docs/screenshots/
+screenshots/
 ```
 
 Includes:
 
 * CI pipeline
-* Kubernetes cluster
-* ArgoCD sync
-* Grafana dashboards
+* Dockerhub Images
 * Application UI
 
 ---
@@ -230,6 +237,7 @@ Includes:
 
 ---
 
-## 📜 License
+# 👨‍💻 Author
 
-MIT License
+**DevOps Engineer Portfolio Project**
+- AWS | CI/CD | Docker | Kubernetes | Security | Monitoring | Cloud Infrastructure
