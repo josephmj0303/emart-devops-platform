@@ -171,7 +171,11 @@ All microservices are containerized and pushed to DockerHub.
 * Image scanning using Trivy
 * Non-root containers
 * `.trivyignore` for noise reduction
-* Secrets externalized (not hardcoded)
+
+⚠️ Note: For simplicity, plain environment variables are used.
+In production, this should be replaced with:
+- Kubernetes Secrets
+- External Secrets / Vault
 
 ---
 
