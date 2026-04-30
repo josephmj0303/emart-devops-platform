@@ -58,3 +58,5 @@ mongoose
     console.log("\nConnected to".magenta, "E-MART".cyan, "database".magenta);
   })
   .catch(err => console.log("Error connecting to database".cyan, err));
+
+//fix node-api server.js
