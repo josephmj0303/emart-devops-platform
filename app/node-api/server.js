@@ -60,3 +60,5 @@ mongoose
   .catch(err => console.log("Error connecting to database".cyan, err));
 
 //fix node-api server.js
+//remove frontend serving from node api
+//convert node api to api-only service
