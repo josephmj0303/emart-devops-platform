@@ -31,6 +31,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     # 4. Build Images
+    # Fix: dynamic image tag update to prevent ArgoCD drift
     - name: Build Images
       run: |
         docker build -t $IMAGE_PREFIX-frontend:$TAG ./app/client
@@ -93,8 +94,9 @@ jobs:
         git config user.email "actions@github.com"
 
         git add .
-
+        # Added condition:
         if ! git diff --cached --quiet; then
           git commit -m "Update images to $TAG"
           git push origin main
         fi
+
