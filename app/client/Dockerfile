@@ -14,6 +14,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # 🔥 CRITICAL FIX (use actual folder name)
+# fix frontend deployment
 COPY --from=build /app/dist/client/ /usr/share/nginx/html/
 
 EXPOSE 80
