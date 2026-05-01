@@ -34,6 +34,7 @@ app.get("/", (req, res) => {
   res.send("Node API is running");
 });
 
+// edit server.js for metrics
 // ✅ Prometheus Metrics Endpoint
 app.get("/metrics", async (req, res) => {
   res.set("Content-Type", client.register.contentType);
