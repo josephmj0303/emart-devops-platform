@@ -268,7 +268,7 @@ Includes:
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **DevOps Engineer Portfolio Project**
 - AWS | CI/CD | Docker | Kubernetes | Security | Monitoring | Cloud Infrastructure
